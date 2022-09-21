@@ -10,7 +10,7 @@ import pe.idat.model.Producto;
 @Service
 public class ProductoRepositoryImpl implements ProductoRepository{
 
-	List<Producto> almacenamiento = new ArrayList<Producto>();
+List<Producto> almacenamiento = new ArrayList<Producto>();
 	
 	@Override
 	public List<Producto> lista() {
@@ -30,8 +30,8 @@ public class ProductoRepositoryImpl implements ProductoRepository{
 	@Override
 	public void actualizar(Producto producto) {
 		Producto foundProducto = obtener(producto.getIdProducto());
-		eliminar(producto.getIdProducto());
-		almacenamiento.add(foundProducto);
+		eliminar(foundProducto.getIdProducto());
+		almacenamiento.add(producto);
 	}
 
 	@Override
@@ -39,5 +39,5 @@ public class ProductoRepositoryImpl implements ProductoRepository{
 		Producto foundProducto = obtener(idProducto);
 		almacenamiento.remove(foundProducto);
 	}
-
+	
 }
