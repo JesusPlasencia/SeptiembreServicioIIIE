@@ -1,14 +1,11 @@
 package pe.idat.repository;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import pe.idat.model.Producto;
 
-public interface ProductoRepository {
+@Repository
+public interface ProductoRepository extends JpaRepository<Producto, Integer>{
 
-	List<Producto> lista();
-	Producto obtener(Integer idProducto);
-	void guardar(Producto producto);
-	void actualizar(Producto producto);
-	void eliminar(Integer idProducto);
 }

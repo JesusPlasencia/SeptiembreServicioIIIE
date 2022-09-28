@@ -1,12 +1,28 @@
 package pe.idat.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="productos")
 public class Producto {
 
+	@Id()
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_PRODUCTO")
 	private Integer idProducto;
 	private String nombreProducto;
 	private String descripcion;
 	private double precio;
 	private Integer stock;
+	
+	public Producto() {
+		
+	}
 	
 	public Producto(Integer idProducto, String nombreProducto, String descripcion, double precio, Integer stock) {
 		super();

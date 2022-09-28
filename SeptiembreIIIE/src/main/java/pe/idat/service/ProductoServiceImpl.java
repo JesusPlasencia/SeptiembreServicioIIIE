@@ -16,27 +16,27 @@ public class ProductoServiceImpl implements ProductoService {
 	
 	@Override
 	public List<Producto> lista() {
-		return repository.lista();
+		return repository.findAll();
 	}
 
 	@Override
 	public Producto obtener(Integer idProducto) {
-		return repository.obtener(idProducto);
+		return repository.findById(idProducto).orElse(null);
 	}
 
 	@Override
 	public void guardar(Producto producto) {
-		repository.guardar(producto);
+		repository.save(producto);
 	}
 
 	@Override
 	public void actualizar(Producto producto) {
-		repository.actualizar(producto);
+		repository.saveAndFlush(producto);
 	}
 
 	@Override
 	public void eliminar(Integer idProducto) {
-		repository.eliminar(idProducto);
+		repository.deleteById(idProducto);
 	}
 	
 }
